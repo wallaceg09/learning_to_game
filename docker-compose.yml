@@ -1,0 +1,14 @@
+version: "3"
+services:
+  trainer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: game-trainer:dev
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]
